@@ -1,0 +1,302 @@
+<head>
+    <style>
+        h2.sub-header {
+            text-align: left;
+            counter-reset: section2;
+        }
+        body{
+            counter-reset: section;
+            font-size: medium;
+        }
+        h2::before{
+            counter-increment: section;
+            content: counter(section)": ";
+        }
+        h3::before{
+            counter-increment: section2;
+            content: counter(section)"."counter(section2)": ";
+        }
+        thead,tbody,tr,th,td{
+            font-size: large;
+        }
+        tr{
+            text-align: left !important;
+        }
+    </style>
+    <title>Two ANOVA Result From Python</title>
+</head>
+<body style="width: 900px; text-align: center; margin: auto auto auto auto;">
+    <h1>Two ANOVA Result From Python</h1>
+    <h2 class="sub-header" >Factors Water & Fert arrangement table</h2>
+    <table style="width:100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th  class="index" style="border: thin solid black;"></th>
+                
+                
+                
+                <th style="text-align: center; border: thin solid #000000;">High</th>
+                
+                
+                
+                
+                <th style="text-align: center; border: thin solid black;"></th>
+                
+                
+                
+                
+                <th style="text-align: center; border: thin solid #000000;">Low</th>
+                
+                
+                
+                
+                <th style="text-align: center; border: thin solid black;"></th>
+                
+                
+                
+            </tr>
+            <tr>
+                <th  class="index" style="text-align: center; border: thin solid black;  width: 16px;">Fert</th>
+                
+                <th style="text-align: center; border: thin solid black;">A</th>
+                
+                <th style="text-align: center; border: thin solid black;">B</th>
+                
+                <th style="text-align: center; border: thin solid black;">A</th>
+                
+                <th style="text-align: center; border: thin solid black;">B</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td class="index", style="text-align: center; border: thin solid black; width: 16px;">1</td>
+                
+                <td style="text-align: center; border: thin solid black;">27.4</td>
+                
+                <td style="text-align: center; border: thin solid black;">34.8</td>
+                
+                <td style="text-align: center; border: thin solid black;">32.0</td>
+                
+                <td style="text-align: center; border: thin solid black;">26.8</td>
+                
+            </tr>
+            
+            <tr>
+                <td class="index", style="text-align: center; border: thin solid black; width: 16px;">2</td>
+                
+                <td style="text-align: center; border: thin solid black;">33.6</td>
+                
+                <td style="text-align: center; border: thin solid black;">27.0</td>
+                
+                <td style="text-align: center; border: thin solid black;">32.2</td>
+                
+                <td style="text-align: center; border: thin solid black;">23.2</td>
+                
+            </tr>
+            
+            <tr>
+                <td class="index", style="text-align: center; border: thin solid black; width: 16px;">3</td>
+                
+                <td style="text-align: center; border: thin solid black;">29.8</td>
+                
+                <td style="text-align: center; border: thin solid black;">30.2</td>
+                
+                <td style="text-align: center; border: thin solid black;">26.0</td>
+                
+                <td style="text-align: center; border: thin solid black;">29.4</td>
+                
+            </tr>
+            
+            <tr>
+                <td class="index", style="text-align: center; border: thin solid black; width: 16px;">4</td>
+                
+                <td style="text-align: center; border: thin solid black;">35.2</td>
+                
+                <td style="text-align: center; border: thin solid black;">30.8</td>
+                
+                <td style="text-align: center; border: thin solid black;">33.4</td>
+                
+                <td style="text-align: center; border: thin solid black;">19.4</td>
+                
+            </tr>
+            
+            <tr>
+                <td class="index", style="text-align: center; border: thin solid black; width: 16px;">5</td>
+                
+                <td style="text-align: center; border: thin solid black;">33.0</td>
+                
+                <td style="text-align: center; border: thin solid black;">26.4</td>
+                
+                <td style="text-align: center; border: thin solid black;">26.4</td>
+                
+                <td style="text-align: center; border: thin solid black;">23.8</td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+    <h2 class="sub-header" >Mean result table</h2>
+    <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th  class="index" style="text-align: center; border: thin solid black; width: 112px;"></th>
+                    
+                    
+                    
+                    <th style="text-align: center; border: thin solid #000000;">Yield</th>
+                    
+                    
+                    
+                    
+                    <th style="text-align: center; border: thin solid black;"></th>
+                    
+                    
+                    
+                    
+                    <th style="text-align: center; border: thin solid black;"></th>
+                    
+                    
+                    
+                </tr>
+                <tr>
+                    <th  class="index" style="text-align: center; border: thin solid black;">Fert</th>
+                    
+                    <th style="text-align: center; border: thin solid black;">A</th>
+                    
+                    <th style="text-align: center; border: thin solid black;">B</th>
+                    
+                    <th style="text-align: center; border: thin solid black;">Average</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td class="index", style="text-align: center; border: thin solid black; width: 112px;">High</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">31.8</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">29.84</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">30.8</td>
+                    
+                </tr>
+                
+                <tr>
+                    <td class="index", style="text-align: center; border: thin solid black; width: 112px;">Low</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">30.0</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">24.52</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">27.3</td>
+                    
+                </tr>
+                
+                <tr>
+                    <td class="index", style="text-align: center; border: thin solid black; width: 112px;">Average</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">30.9</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">27.18</td>
+                    
+                    <td style="text-align: center; border: thin solid black; ">29.05</td>
+                    
+                </tr>
+                S
+            </tbody>
+        </table>
+        <h2 class="sub-header" >Two way Anova Table</h2>
+        <h3>Marginal Mean Result</h3>
+        <div style="width: 750px; height: 750px; margin: auto;">
+            <img src="plot.png" style="width: 100%;"/>
+        </div>
+        <! ANOVA TABLE START HERE>
+        <h3>Between Subject Effect</h3>
+        <table style="width:100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th  class="index" style="text-align: center; border: thin solid black;  width: 160px;">SOURCES</th>
+                        
+                        <th style="text-align: center; border: thin solid black;">SS</th>
+                        
+                        <th style="text-align: center; border: thin solid black;">DF</th>
+                        
+                        <th style="text-align: center; border: thin solid black;">MEAN_SUM</th>
+                        
+                        <th style="text-align: center; border: thin solid black;">F</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="index", style="text-align: center; border: thin solid black; width: 160px;">WATER</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">61.2500</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">1</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">61.2500</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">5.1042</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="index", style="text-align: center; border: thin solid black; width: 160px;">FERT</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">69.1940</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">1</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">69.1940</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">5.7662</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="index", style="text-align: center; border: thin solid black; width: 160px;">WATER:FERT</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">17.6100</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">1</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">17.6100</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">1.4675</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="index", style="text-align: center; border: thin solid black; width: 160px;">RESIDUAL</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">192.0000</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">16</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">12.0000</td>
+                        
+                        <td style="text-align: center; border: thin solid black;"></td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="index", style="text-align: center; border: thin solid black; width: 160px;">TOTAL</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">340.0500</td>
+                        
+                        <td style="text-align: center; border: thin solid black;">19</td>
+                        
+                        <td style="text-align: center; border: thin solid black;"></td>
+                        
+                        <td style="text-align: center; border: thin solid black;"></td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+</body>

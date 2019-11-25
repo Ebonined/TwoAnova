@@ -1,0 +1,123 @@
+<head>
+    <style>
+        h2.sub-header {
+            text-align: left;
+            counter-reset: section2;
+        }
+        body{
+            counter-reset: section;
+            font-size: medium;
+        }
+        h2::before{
+            counter-increment: section;
+            content: counter(section)": ";
+        }
+        h3::before{
+            counter-increment: section2;
+            content: counter(section)"."counter(section2)": ";
+        }
+        thead,tbody,tr,th,td{
+            font-size: large;
+        }
+        tr{
+            text-align: left !important;
+        }
+    </style>
+    <title>Two ANOVA Result From Python</title>
+</head>
+<body style="width: 900px; text-align: center; margin: auto auto auto auto;">
+    <h1>Two ANOVA Result From Python</h1>
+    <h2 class="sub-header" >Factors {{ddf2.columns[0:2][0]}} & {{ddf2.columns[0:2][1]}} arrangement table</h2>
+    <table style="width:100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th  class="index" style="border: thin solid black;"></th>
+                {% set ecol = ['empty'] %}
+                {% for col in list(zip(*df.columns))[0] %}
+                {% if col == ecol[-1] %}
+                <th style="text-align: center; border: thin solid black;"></th>
+                {% elif col != ecol[-1] %}
+                <th style="text-align: center; border: thin solid #000000;">{{col}}</th>
+                {% endif %}
+                {% do ecol.append(col) %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <th  class="index" style="text-align: center; border: thin solid black;  width: {{space(df)*16}}px;">{{ df.columns.names[1] }}</th>
+                {% for col in list(zip(*df.columns))[1] %}
+                <th style="text-align: center; border: thin solid black;">{{col}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for id,row in df.iterrows() %}
+            <tr>
+                <td class="index", style="text-align: center; border: thin solid black; width: {{space(df)*16}}px;">{{id}}</td>
+                {% for col in df.columns %}
+                <td style="text-align: center; border: thin solid black;">{{row[col]}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2 class="sub-header" >Mean result table</h2>
+    <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th  class="index" style="text-align: center; border: thin solid black; width: {{space(df2)*16}}px;"></th>
+                    {% set ecol = ['empty'] %}
+                    {% for col in list(zip(*df2.columns))[0] %}
+                    {% if col == ecol[-1] %}
+                    <th style="text-align: center; border: thin solid black;"></th>
+                    {% elif col != ecol[-1] %}
+                    <th style="text-align: center; border: thin solid #000000;">{{col}}</th>
+                    {% endif %}
+                    {% do ecol.append(col) %}
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th  class="index" style="text-align: center; border: thin solid black;">{{ df2.columns.names[1] }}</th>
+                    {% for col in list(zip(*df2.columns))[1] %}
+                    <th style="text-align: center; border: thin solid black;">{{col}}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for id,row in df2.iterrows() %}
+                <tr>
+                    <td class="index", style="text-align: center; border: thin solid black; width: {{space(df2)*16}}px;">{{id}}</td>
+                    {% for col in df2.columns %}
+                    <td style="text-align: center; border: thin solid black; ">{{ row[col] | round(2) }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h2 class="sub-header" >Two way Anova Table</h2>
+        <h3>Marginal Mean Result</h3>
+        <div style="width: 750px; height: 750px; margin: auto;">
+            <img src="plot.png" style="width: 100%;"/>
+        </div>
+        <! ANOVA TABLE START HERE>
+        <h3>Between Subject Effect</h3>
+        <table style="width:100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th  class="index" style="text-align: center; border: thin solid black;  width: {{space(ano)*16}}px;">{{ano.index.name}}</th>
+                        {% for col in ano.columns %}
+                        <th style="text-align: center; border: thin solid black;">{{col}}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for id,row in ano.iterrows() %}
+                    <tr>
+                        <td class="index", style="text-align: center; border: thin solid black; width: {{space(ano)*16}}px;">{{id}}</td>
+                        {% for col in ano.columns %}
+                        <td style="text-align: center; border: thin solid black;">{{row[col]}}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+</body>
